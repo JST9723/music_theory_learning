@@ -1,5 +1,6 @@
-
+// Pitch Notation
 $(document).on('click', ".key", function() {
+	// Highlight keys in orange
     $(".white").children().css("background-color", "white");
     $(".black").children().css("background-color", "black");
     var midi = $(this)[0].id;
@@ -7,6 +8,8 @@ $(document).on('click', ".key", function() {
     $(this).children().css("background-color", "orange");
 });
 
+// Load Tone.js library
+// Sampler
 var piano = new Tone.Sampler({
 'A0' : 'A0.[mp3|ogg]',
 'C1' : 'C1.[mp3|ogg]',
@@ -44,7 +47,6 @@ var piano = new Tone.Sampler({
 }).toMaster();
 
 // GUI //
-
 var keyboard = Interface.Keyboard();
 
 keyboard.keyDown = function (note) {

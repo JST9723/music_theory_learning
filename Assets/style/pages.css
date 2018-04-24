@@ -1,5 +1,5 @@
 /*
-    STYLE
+    STYLE for tutorial pages
 */
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
@@ -245,6 +245,9 @@ ul.CTAs a {
     margin-right: auto;
 }
 
+/* ---------------------------------------------------
+    Phone view
+----------------------------------------------------- */
 @media screen and (max-width: 600px) {
   .container {
     width: 85%;
@@ -253,6 +256,10 @@ ul.CTAs a {
 }
 }
 
+
+/* ---------------------------------------------------
+    All major keys buttons
+----------------------------------------------------- */
 .scale {
     width: 55px;
     height: 55px;

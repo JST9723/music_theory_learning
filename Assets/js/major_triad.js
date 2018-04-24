@@ -2,8 +2,10 @@
 var major_triad = [0,4,3];
 // DEFAULT INSTRUMENT
 var currentInstrument = "piano";
-            
+ 
+//render notes prompt           
 $(".notes").text("Click on one of the notes to see the illustrations of major triads.");
+//select one of the keys
 $(document).on('click', ".key", function() {
     $(".white").children().css("background-color", "white");
     $(".black").children().css("background-color", "black");
@@ -12,6 +14,7 @@ $(document).on('click', ".key", function() {
     var maxMidi = $("#keyboard").children().last()[0].id;
     for(i = 0; i < major_triad.length; i++){
         midi = parseInt(midi) + major_triad[i];
+        // highlight the keys in orange
         if(midi <= maxMidi){
             document.getElementById(midi).children[0].style.backgroundColor ="orange";
         }
@@ -28,7 +31,7 @@ $(document).on('click', ".key", function() {
         else {
             pluck.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
         }
-        
+        // Show notes
         if(i == 0){
             notes += Tone.Frequency(midi, "midi").toNote();
         }
@@ -36,6 +39,7 @@ $(document).on('click', ".key", function() {
             notes += " - " + Tone.Frequency(midi, "midi").toNote();
         }
     };
+    // render notes
     $(".notes").text(notes);
 });
 

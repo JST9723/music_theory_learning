@@ -3,7 +3,7 @@ var minor_triad = [0,3,4];
 // DEFAULT INSTRUMENT
 var currentInstrument = "piano";
             
-
+//render notes
 $(".notes").text("Click on one of the notes to see the illustrations of minor triads.");
 $(document).on('click', ".key", function() {
     $(".white").children().css("background-color", "white");
@@ -13,10 +13,12 @@ $(document).on('click', ".key", function() {
     var maxMidi = $("#keyboard").children().last()[0].id;
     for(i = 0; i < minor_triad.length; i++){
         midi = parseInt(midi) + minor_triad[i];
+        // get maximum key id
         if(midi <= maxMidi){
             document.getElementById(midi).children[0].style.backgroundColor ="orange";
         }
         midi = midi.toString();
+        // play according to different instruments
         if(currentInstrument=="piano"){
             piano.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
         }
@@ -29,6 +31,7 @@ $(document).on('click', ".key", function() {
         else {
             pluck.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
         }
+        // Show notes
         if(i == 0){
             notes += Tone.Frequency(midi, "midi").toNote();
         }
@@ -40,24 +43,28 @@ $(document).on('click', ".key", function() {
 });
 
 // SELECT INSTRUMENT
+// AMSynth
 $("#amsynth").on("click", function(){
     currentInstrument = "amsynth";
     $('.button.active').removeClass('active');
     $(this).addClass('active');
 });
 
+// Piano
 $("#piano").on("click", function(){
     $('.button.active').removeClass('active');
     $(this).addClass('active');
     currentInstrument = "piano";
 });
 
+//PolySynth
 $("#polySynth").on("click", function(){
     $('.button.active').removeClass('active');
     $(this).addClass('active');
     currentInstrument = "polySynth";
 });
 
+//Pluck
 $("#pluck").on("click", function(){
     $('.button.active').removeClass('active');
     $(this).addClass('active');

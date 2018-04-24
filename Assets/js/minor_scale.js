@@ -1,10 +1,14 @@
+// minor scale patterns
 var natural_minor_scales = [0,2,1,2,2,1,2,2];
 var harmonic_minor_scales = [0,2,1,2,2,1,3,1];
 var melodic_minor_scales = [0,2,1,2,2,2,2,1];
+// default instrument is piano
 var currentInstrument = "piano";
+// default scale is natural minor scale
 var current_scale = natural_minor_scales;
             
-
+            
+// click on one of the colored major key buttons
 $(".notes").text("Click on one of the minors to see the illustrations of minor scales.");
 $(document).on('click', ".scale", function() {
     $(".white").children().css("background-color", "white");
@@ -14,6 +18,7 @@ $(document).on('click', ".scale", function() {
     for(i = 0; i < current_scale.length; i++){
         midi = parseInt(midi) + current_scale[i];
         midi = midi.toString();
+        //play sounds according to instrument selected
         if(currentInstrument=="piano"){
             piano.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
         }
@@ -27,6 +32,7 @@ $(document).on('click', ".scale", function() {
             pluck.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
         }
         document.getElementById(midi).children[0].style.backgroundColor ="orange";
+        // Show notes
         if(i == 0){
             notes += Tone.Frequency(midi, "midi").toNote();
         }
@@ -37,49 +43,59 @@ $(document).on('click', ".scale", function() {
     $(".notes").text(notes);
 });
 
+// select amsynth
 $("#amsynth").on("click", function(){
     currentInstrument = "amsynth";
     $('.button.active').removeClass('active');
     $(this).addClass('active');
 });
 
+
+//select piano
 $("#piano").on("click", function(){
     $('.button.active').removeClass('active');
     $(this).addClass('active');
     currentInstrument = "piano";
 });
 
+
+//select polysynth
 $("#polySynth").on("click", function(){
     $('.button.active').removeClass('active');
     $(this).addClass('active');
     currentInstrument = "polySynth";
 });
 
+
+//select pluck
 $("#pluck").on("click", function(){
     $('.button.active').removeClass('active');
     $(this).addClass('active');
     currentInstrument = "pluck";
 });
 
+//select harmonic minor scale
 $("#harmonic").on("click", function(){
     $('.buttons.active').removeClass('active');
     $(this).addClass('active');
     current_scale = harmonic_minor_scales;
 });
 
+//select natural minor scale
 $("#natural").on("click", function(){
     $('.buttons.active').removeClass('active');
     $(this).addClass('active');
     current_scale = natural_minor_scales;
 });
 
+//select melodic minor scale
 $("#melodic").on("click", function(){
     $('.buttons.active').removeClass('active');
     $(this).addClass('active');
     current_scale = melodic_minor_scales;
 });
 
-
+//initialize instruments
 var synth = new Tone.AMSynth().toMaster();
 var pluck = new Tone.PluckSynth().toMaster();
 var polySynth = new Tone.PolySynth().toMaster();

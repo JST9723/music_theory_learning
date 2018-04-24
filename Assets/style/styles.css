@@ -192,7 +192,7 @@ ul.CTAs a {
     height: 49px;
     cursor: pointer;
     background: #5bc0de;
-    margin: 30px auto;
+    margin: 35px auto;
     text-align: center;
     color:#fff;
     font-size: 23px;
@@ -208,7 +208,7 @@ ul.CTAs a {
     margin: auto;
     margin-top: 8%;
     width: 47%;
-    height: 42%;
+    height: 40%;
 }
 
 /*Phone View*/
@@ -216,9 +216,24 @@ ul.CTAs a {
     #lineDrawing svg{
         display: block;
         margin: auto;
-        margin-top: 8%;
+        margin-top: 10%;
         width: 75%;
-        height: 60%;
+        height: 65%;
+    }
+}
+
+/*IPad View*/
+@media screen and (max-width: 1200px) {
+    #lineDrawing svg{
+        display: block;
+        margin: auto;
+        margin-top: 15%;
+        width: 70%;
+        height: 70%;
+    }
+
+    .clicky {
+        margin-top: 50px;
     }
 }
 

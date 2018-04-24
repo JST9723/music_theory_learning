@@ -1,7 +1,9 @@
+// major scales pattern
 var major_scales = [0,2,2,1,2,2,2,1];
+// default instrument is piano
 var currentInstrument = "piano";
             
-
+// click on one of the colored major key buttons
 $(".notes").text("Click on one of the majors to see the illustrations of major scales.");
 $(document).on('click', ".scale", function() {
     $(".white").children().css("background-color", "white");
@@ -11,6 +13,7 @@ $(document).on('click', ".scale", function() {
     for(i = 0; i < major_scales.length; i++){
         midi = parseInt(midi) + major_scales[i];
         midi = midi.toString();
+        //play sounds according to selected instrument
         if(currentInstrument=="piano"){
             piano.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
         }
@@ -23,7 +26,9 @@ $(document).on('click', ".scale", function() {
         else {
             pluck.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
         }
+        // highlight the keys in orange
         document.getElementById(midi).children[0].style.backgroundColor ="orange";
+        // Show notes
         if(i == 0){
             notes += Tone.Frequency(midi, "midi").toNote();
         }
@@ -31,33 +36,40 @@ $(document).on('click', ".scale", function() {
             notes += " - " + Tone.Frequency(midi, "midi").toNote();
         }
     };
+    // render notes
     $(".notes").text(notes);
 });
 
+// select amsynth
 $("#amsynth").on("click", function(){
     currentInstrument = "amsynth";
     $('.button.active').removeClass('active');
     $(this).addClass('active');
 });
 
+//select piano
 $("#piano").on("click", function(){
     $('.button.active').removeClass('active');
     $(this).addClass('active');
     currentInstrument = "piano";
 });
 
+
+//select polysynth
 $("#polySynth").on("click", function(){
     $('.button.active').removeClass('active');
     $(this).addClass('active');
     currentInstrument = "polySynth";
 });
 
+//select pluck
 $("#pluck").on("click", function(){
     $('.button.active').removeClass('active');
     $(this).addClass('active');
     currentInstrument = "pluck";
 });
 
+// initialize instruments
 var synth = new Tone.AMSynth().toMaster();
 var pluck = new Tone.PluckSynth().toMaster();
 var polySynth = new Tone.PolySynth().toMaster();
@@ -127,8 +139,6 @@ keyboard.keyUp = function (note) {
 
 
 
-
-
 /* Music Notation */
 VF = Vex.Flow;
 
@@ -150,6 +160,7 @@ stave.addClef("treble");
 // Connect it to the rendering context and draw!
 stave.setContext(context).draw();
 
+// add note
 var note_data = [
   { keys: ["c/4"], duration: "q"},
   { keys: ["d/4"], duration: "q"},
@@ -165,6 +176,7 @@ function createNote(note_data) {
   return new VF.StaveNote(note_data);
 }
 
+// formatting
 var formatter = new VF.Formatter();
 var notes = note_data.map(createNote);
 var voice = new VF.Voice({num_beats: 8,  beat_value: 4});
