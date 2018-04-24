@@ -1,11 +1,10 @@
-$(document).ready(function () {
-    $(".key").on('click', function() {
-        $(".white").children().css("background-color", "white");
-        $(".black").children().css("background-color", "black");
-        var midi = $(this)[0].id;
-        $("#pitch").text("Pitch Notation:  " + Tone.Frequency(midi, "midi").toNote());
-        $(this).children().css("background-color", "orange");
-    });
+
+$(document).on('click', ".key", function() {
+    $(".white").children().css("background-color", "white");
+    $(".black").children().css("background-color", "black");
+    var midi = $(this)[0].id;
+    $("#pitch").text("Pitch Notation:  " + Tone.Frequency(midi, "midi").toNote());
+    $(this).children().css("background-color", "orange");
 });
 
 var piano = new Tone.Sampler({

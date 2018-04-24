@@ -208,7 +208,18 @@ ul.CTAs a {
     margin: auto;
     margin-top: 8%;
     width: 47%;
-    height: 43%;
+    height: 42%;
+}
+
+/*Phone View*/
+@media screen and (max-width: 600px) {
+    #lineDrawing svg{
+        display: block;
+        margin: auto;
+        margin-top: 8%;
+        width: 75%;
+        height: 60%;
+    }
 }
 
 /* ---------------------------------------------------

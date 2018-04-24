@@ -3,67 +3,66 @@ var major_triad = [0,4,3];
 // DEFAULT INSTRUMENT
 var currentInstrument = "piano";
             
-window.onload = function()  {
-    $(".notes").text("Click on one of the notes to see the illustrations of major triads.");
-    $(".key").on('click', function() {
-        $(".white").children().css("background-color", "white");
-        $(".black").children().css("background-color", "black");
-        var midi = $(this)[0].id;
-        var notes = "Notes: ";
-        for(i = 0; i < major_triad.length; i++){
-            midi = parseInt(midi) + major_triad[i];
-            if(midi <= 83){
-                document.getElementById(midi).children[0].style.backgroundColor ="orange";
-            }
-            midi = midi.toString();
-            if(currentInstrument=="piano"){
-                piano.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
-            }
-            else if(currentInstrument=="amsynth"){
-                synth.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
-            }
-            else if(currentInstrument=="polySynth"){
-                polySynth.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
-            }
-            else {
-                pluck.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
-            }
-            
-            if(i == 0){
-                notes += Tone.Frequency(midi, "midi").toNote();
-            }
-            else{
-                notes += " - " + Tone.Frequency(midi, "midi").toNote();
-            }
-        };
-        $(".notes").text(notes);
-    });
+$(".notes").text("Click on one of the notes to see the illustrations of major triads.");
+$(document).on('click', ".key", function() {
+    $(".white").children().css("background-color", "white");
+    $(".black").children().css("background-color", "black");
+    var midi = $(this)[0].id;
+    var notes = "Notes: ";
+    var maxMidi = $("#keyboard").children().last()[0].id;
+    for(i = 0; i < major_triad.length; i++){
+        midi = parseInt(midi) + major_triad[i];
+        if(midi <= maxMidi){
+            document.getElementById(midi).children[0].style.backgroundColor ="orange";
+        }
+        midi = midi.toString();
+        if(currentInstrument=="piano"){
+            piano.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
+        }
+        else if(currentInstrument=="amsynth"){
+            synth.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
+        }
+        else if(currentInstrument=="polySynth"){
+            polySynth.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
+        }
+        else {
+            pluck.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
+        }
+        
+        if(i == 0){
+            notes += Tone.Frequency(midi, "midi").toNote();
+        }
+        else{
+            notes += " - " + Tone.Frequency(midi, "midi").toNote();
+        }
+    };
+    $(".notes").text(notes);
+});
 
-    // SELECT INSTRUMENT
-    $("#amsynth").on("click", function(){
-        currentInstrument = "amsynth";
-        $('.button.active').removeClass('active');
-        $(this).addClass('active');
-    });
+// SELECT INSTRUMENT
+$("#amsynth").on("click", function(){
+    currentInstrument = "amsynth";
+    $('.button.active').removeClass('active');
+    $(this).addClass('active');
+});
 
-    $("#piano").on("click", function(){
-        $('.button.active').removeClass('active');
-        $(this).addClass('active');
-        currentInstrument = "piano";
-    });
+$("#piano").on("click", function(){
+    $('.button.active').removeClass('active');
+    $(this).addClass('active');
+    currentInstrument = "piano";
+});
 
-    $("#polySynth").on("click", function(){
-        $('.button.active').removeClass('active');
-        $(this).addClass('active');
-        currentInstrument = "polySynth";
-    });
+$("#polySynth").on("click", function(){
+    $('.button.active').removeClass('active');
+    $(this).addClass('active');
+    currentInstrument = "polySynth";
+});
 
-    $("#pluck").on("click", function(){
-        $('.button.active').removeClass('active');
-        $(this).addClass('active');
-        currentInstrument = "pluck";
-    })
-};
+$("#pluck").on("click", function(){
+    $('.button.active').removeClass('active');
+    $(this).addClass('active');
+    currentInstrument = "pluck";
+});
 
 // INITIALIZE INSTRUMENT
 var synth = new Tone.AMSynth().toMaster();

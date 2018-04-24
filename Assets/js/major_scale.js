@@ -1,63 +1,62 @@
 var major_scales = [0,2,2,1,2,2,2,1];
 var currentInstrument = "piano";
             
-window.onload = function()  {
-    $(".notes").text("Click on one of the majors to see the illustrations of major scales.");
-    $(".scale").on('click', function() {
-        $(".white").children().css("background-color", "white");
-        $(".black").children().css("background-color", "black");
-        var midi = $(this)[0].id;
-        var notes = "Notes: ";
-        for(i = 0; i < major_scales.length; i++){
-            midi = parseInt(midi) + major_scales[i];
-            midi = midi.toString();
-            if(currentInstrument=="piano"){
-                piano.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
-            }
-            else if(currentInstrument=="amsynth"){
-                synth.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
-            }
-            else if(currentInstrument=="polySynth"){
-                polySynth.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
-            }
-            else {
-                pluck.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
-            }
-            document.getElementById(midi).children[0].style.backgroundColor ="orange";
-            if(i == 0){
-                notes += Tone.Frequency(midi, "midi").toNote();
-            }
-            else{
-                notes += " - " + Tone.Frequency(midi, "midi").toNote();
-            }
-        };
-        $(".notes").text(notes);
-    });
 
-    $("#amsynth").on("click", function(){
-        currentInstrument = "amsynth";
-        $('.button.active').removeClass('active');
-        $(this).addClass('active');
-    });
+$(".notes").text("Click on one of the majors to see the illustrations of major scales.");
+$(document).on('click', ".scale", function() {
+    $(".white").children().css("background-color", "white");
+    $(".black").children().css("background-color", "black");
+    var midi = $(this)[0].id;
+    var notes = "Notes: ";
+    for(i = 0; i < major_scales.length; i++){
+        midi = parseInt(midi) + major_scales[i];
+        midi = midi.toString();
+        if(currentInstrument=="piano"){
+            piano.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
+        }
+        else if(currentInstrument=="amsynth"){
+            synth.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
+        }
+        else if(currentInstrument=="polySynth"){
+            polySynth.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
+        }
+        else {
+            pluck.triggerAttackRelease(Tone.Frequency(midi, "midi").toNote(), 0.3, Tone.now() + 0.2*i);
+        }
+        document.getElementById(midi).children[0].style.backgroundColor ="orange";
+        if(i == 0){
+            notes += Tone.Frequency(midi, "midi").toNote();
+        }
+        else{
+            notes += " - " + Tone.Frequency(midi, "midi").toNote();
+        }
+    };
+    $(".notes").text(notes);
+});
 
-    $("#piano").on("click", function(){
-        $('.button.active').removeClass('active');
-        $(this).addClass('active');
-        currentInstrument = "piano";
-    });
+$("#amsynth").on("click", function(){
+    currentInstrument = "amsynth";
+    $('.button.active').removeClass('active');
+    $(this).addClass('active');
+});
 
-    $("#polySynth").on("click", function(){
-        $('.button.active').removeClass('active');
-        $(this).addClass('active');
-        currentInstrument = "polySynth";
-    });
+$("#piano").on("click", function(){
+    $('.button.active').removeClass('active');
+    $(this).addClass('active');
+    currentInstrument = "piano";
+});
 
-    $("#pluck").on("click", function(){
-        $('.button.active').removeClass('active');
-        $(this).addClass('active');
-        currentInstrument = "pluck";
-    })
-};
+$("#polySynth").on("click", function(){
+    $('.button.active').removeClass('active');
+    $(this).addClass('active');
+    currentInstrument = "polySynth";
+});
+
+$("#pluck").on("click", function(){
+    $('.button.active').removeClass('active');
+    $(this).addClass('active');
+    currentInstrument = "pluck";
+});
 
 var synth = new Tone.AMSynth().toMaster();
 var pluck = new Tone.PluckSynth().toMaster();

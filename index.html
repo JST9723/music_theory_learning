@@ -4,12 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+        <base target="_self">
         <title>Music Learn</title>
 
         <!-- JS Library-->
         <script src="build/Tone.js"></script>
         <script src="lib/scripts/jquery.min.js"></script>
+        <script src="lib/scripts/StartAudioContext.js"></script>
         <script src="lib/scripts/Interface.js"></script>
         <script src="lib/scripts/Keyboard.js"></script>
         <script src="Assets/js/main.js"></script>
@@ -63,7 +64,7 @@
                     <li>
                         <a href="#chordSubmenu" data-toggle="collapse" aria-expanded="false">Chords: Triads</a>
                         <ul class="collapse list-unstyled" id="chordSubmenu">
-                            <li><a href="major_triad.html">Major Triads</a></li>
+                            <li><a href="major_triad.html" target="_parent">Major Triads</a></li>
                             <li><a href="minor_triad.html">Minor Triads</a></li>
                         </ul>
                     </li>
