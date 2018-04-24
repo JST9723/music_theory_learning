@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Music Learn</title>
+        <!-- JS Library-->
+        <script src="build/Tone.js"></script>
+        <script src="lib/scripts/jquery.min.js"></script>
+        <script src="lib/scripts/Interface.js"></script>
+        <script src="lib/scripts/Keyboard.js"></script>
+        <script src="Assets/js/main.js"></script>
+        <script src="Assets/js/vexflow.js"></script>
+
+        <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="Assets/style/pages.css">
+        <link rel="stylesheet" href="Assets/style/examples.css">
+
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script>
+        
+    </script>
+        
+    </head>
+    <body>
+        <style type="text/css">
+
+            img {
+                width: 80%;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+
+            #Keyboard {
+                margin: 3px!important;
+            }
+        </style>
+
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div id="dismiss">
+                    <i class="glyphicon glyphicon-arrow-left"></i>
+                </div>
+
+                <div class="sidebar-header">
+                    <h3>Music Learn</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <p>Chapters</p>
+                    <li class="active">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="beats.html">Beats</a>
+                    </li>
+                    <li>
+                        <a href="#pitchSubmenu" data-toggle="collapse" aria-expanded="false">Notation</a>
+                        <ul class="collapse list-unstyled" id="pitchSubmenu">
+                            <li><a href="pitch_notation.html">Pitch Notation</a></li>
+                            <li><a href="clef.html">Clef Notes</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="major_scale.html">Major Scales</a>
+                    </li>
+                    <li>
+                        <a href="minor_scale.html">Minor Scales</a>
+                    </li>
+                    <li>
+                        <a href="#chordSubmenu" data-toggle="collapse" aria-expanded="false">Chords: Triads</a>
+                        <ul class="collapse list-unstyled" id="chordSubmenu">
+                            <li><a href="major_triad.html">Major Triads</a></li>
+                            <li><a href="minor_triad.html">Minor Triads</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Page Content -->
+            <div id="content">
+
+                <nav class="navbar navbar-default" id="topbar">
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                                <i class="glyphicon glyphicon-align-left"></i>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container">
+                    <h2>Minor Scales</h2>
+                    <!--  Content from wikipedia: https://en.wikipedia.org/wiki/Minor_scale -->
+                    <p>In music theory, the term minor scale is more complicated than the term major scale because it generally refers to three scale formations – the natural minor scale (or Aeolian mode), the harmonic minor scale, and the melodic minor scale (ascending or descending) – rather than just one as with the major scale.</p>
+                    <!--  NATURAL MINOR SCALE -->
+                    <h3>Natural Minor Scales</h3>
+                    <p>A natural minor scale (or Aeolian mode) is a diatonic scale that is built by starting on the 6th degree of its relative major scale. For instance, the A natural minor scale can be built by starting on the 6th degree of the C major scale:</p>
+                    <img src="Assets/img/natural_minor_scale.png" alt="natural_minor_scale">
+                    <p>The sequence of intervals between the notes of a natural minor scale is:</p><span><strong style="font-size: 18px; color:blue">whole&emsp;</strong><strong style="font-size: 18px; color:red">half&emsp;</strong><strong style="font-size: 18px; color:blue">whole&emsp;whole&emsp;</strong><strong style="font-size: 18px; color:red"> half&emsp;</strong><strong style="font-size: 18px; color:blue">whole&emsp;whole&emsp;</strong></span>
+                    <br><br>
+                    <p>where "whole" stands for a whole tone, and "half" stands for a semitone.</p><br>
+
+                    <!--  HARMONIC MINOR SCALE -->
+                    <h3>Harmonic Minor Scales</h3>
+                    <p>The harmonic minor scale (or Aeolian ♯7 scale) has the same notes as the natural minor scale except that the 7th degree is raised by one semitone, creating an augmented second between the 6th and 7th degrees.</p>
+                    <img src="Assets/img/harmonic_minor_scale.png" alt="harmonic_minor_scale"><br><br>
+
+                    <!--  MELODIC MINOR SCALE -->
+                    <h3>Melodic Minor Scales</h3>
+                    <p>To convert a natural minor scale into melodic minor, raise both the sixth and seventh notes by a half step. Usually, melodic minor is used only when ascending. When descending, composers prefer to use the natural minor scale.</p>
+                    <img src="Assets/img/melodic_minor_scale.png" alt="melodic_minor_scale"><br>
+
+                    <!--  Select Instrument from below options -->
+                    <div class="instrButtons">
+                        <button class="button active" id="piano">Piano</button>
+                        <button class="button" id="amsynth">AMSynth</button>
+                        <button class="button" id="polySynth">PolySynth</button>
+                        <button class="button" id="pluck">Pluck</button>
+                    </div>
+                    <div id="Content">
+                        <div id="Keyboard"></div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="btns keys">
+                            <div class="minorSelectorButtons">
+                                <button class="buttons active" id="natural">Natural</button>
+                                <button class="buttons" id="harmonic">Harmonic</button>
+                                <button class="buttons" id="melodic">Melodic</button>
+                            </div> 
+                            <div class="notes"></div><br>
+                            <div class='scale' id="57" style="background-color: #E54C4E">a</div>
+                            <div class='scale' id="52" style="background-color: #DF844A">e</div>
+                            <div class='scale' id="59" style="background-color: #E4AB51">b</div>
+                            <div class='scale' id="54" style="background-color: #E3C749">f&#9839</div>
+                            <div class='scale' id="49" style="background-color: #DFE44E">c&#9839</div>
+                            <div class='scale' id="56" style="background-color: #AED747">g&#9839</div>
+                            <div class='scale' id="51" style="background-color: #3FBC46">d&#9839</div>
+                            <div class='scale' id="50" style="background-color: #3FA9B4">d</div>
+                            <div class='scale' id="55" style="background-color: #407CB4">g</div>
+                            <div class='scale' id="48" style="background-color: #5c6bc0">c</div>
+                            <div class='scale' id="53" style="background-color: #4E45B3">f</div>
+                            <div class='scale' id="58" style="background-color: #8D45B7">b&#9837</div>
+                            <div class='scale' id="51" style="background-color: #CA4593">e&#9837</div>
+                        </div>
+                    </div>
+                    <!-- PREV NEXT ACTION BUTTONS -->
+                    <div class="action-buttons">
+                        <a href="major_scale.html"><div class="previous action-button-previous"><span class="glyphicon glyphicon-chevron-left"></span> Previous</div></a>
+                        <a href="major_triad.html"><div class="next action-button">Next <span class="glyphicon glyphicon-chevron-right"></span></div></a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <div class="overlay"></div>
+
+
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- jQuery Custom Scroller CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="Assets/js/anime.min.js"></script>
+        <script src="Assets/js/minor_scale.js"></script>
+    </body>
+</html>

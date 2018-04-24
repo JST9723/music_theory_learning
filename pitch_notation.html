@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Music Learn</title>
+        <!-- JS Library-->
+        <script src="build/Tone.js"></script>
+        <script src="lib/scripts/jquery.min.js"></script>
+        <script src="lib/scripts/Interface.js"></script>
+        <script src="lib/scripts/Keyboard.js"></script>
+        <script src="Assets/js/main.js"></script>
+
+        <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="Assets/style/pages.css">
+        <link rel="stylesheet" href="Assets/style/examples.css">
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script>
+        
+    </script>
+        
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div id="dismiss">
+                    <i class="glyphicon glyphicon-arrow-left"></i>
+                </div>
+
+                <div class="sidebar-header">
+                    <h3>Music Learn</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <p>Chapters</p>
+                    <li class="active">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="beats.html">Beats</a>
+                    </li>
+                    <li>
+                        <a href="#pitchSubmenu" data-toggle="collapse" aria-expanded="false">Notation</a>
+                        <ul class="collapse list-unstyled" id="pitchSubmenu">
+                            <li><a href="pitch_notation.html">Pitch Notation</a></li>
+                            <li><a href="clef.html">Clef Notes</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="major_scale.html">Major Scales</a>
+                    </li>
+                    <li>
+                        <a href="minor_scale.html">Minor Scales</a>
+                    </li>
+                    <li>
+                        <a href="#chordSubmenu" data-toggle="collapse" aria-expanded="false">Chords: Triads</a>
+                        <ul class="collapse list-unstyled" id="chordSubmenu">
+                            <li><a href="major_triad.html">Major Triads</a></li>
+                            <li><a href="minor_triad.html">Minor Triads</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Page Content Holder -->
+            <div id="content">
+
+                <nav class="navbar navbar-default" id="topbar">
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                                <i class="glyphicon glyphicon-align-left"></i>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container">
+
+                <!-- Pitch Notation Explanation -->
+                <h2>Pitch Notation</h2>
+                <p>Pitch notation identifies frequencies using letters, numbers, and/or symbols, allowing for the quick reference of a specific pitch. This lets you avoid having to explain a note by its position on the staff, or by its relative location on the keyboard (for example, C2 instead of “the C two octaves below middle C”).</p>
+
+                <div id="Content">
+                    <!-- Render Keyboard -->
+                    <div id="Keyboard"></div>
+                </div>
+                <p id="pitch">Click on any key on keyboard to see the pitch notation!</p>
+                </div>
+
+                <!-- PREV NEXT ACTION BUTTONS -->
+                <div class="action-buttons">
+                    <a href="beats.html"><div class="previous action-button-previous"><span class="glyphicon glyphicon-chevron-left"></span> Previous</div></a>
+                    <a href="clef.html"><div class="next action-button">Next <span class="glyphicon glyphicon-chevron-right"></span></div></a>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- OVERLAY -->
+        <div class="overlay"></div>
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- jQuery Custom Scroller CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="Assets/js/pitch_notation.js"></script>
+    </body>
+</html>

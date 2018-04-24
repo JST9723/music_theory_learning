@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Music Learn</title>
+
+        <!-- JS Library-->
+        <script src="build/Tone.js"></script>
+        <script src="lib/scripts/jquery.min.js"></script>
+        <script src="lib/scripts/Interface.js"></script>
+        <script src="lib/scripts/Keyboard.js"></script>
+        <script src="Assets/js/main.js"></script>
+
+
+        <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="Assets/style/styles.css">
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script>
+        
+    </script>
+        
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div id="dismiss">
+                    <i class="glyphicon glyphicon-arrow-left"></i>
+                </div>
+
+                <div class="sidebar-header">
+                    <h3>Music Learn</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <p>Chapters</p>
+                    <li class="active">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="beats.html">Beats</a>
+                    </li>
+                    <li>
+                        <a href="#pitchSubmenu" data-toggle="collapse" aria-expanded="false">Notation</a>
+                        <ul class="collapse list-unstyled" id="pitchSubmenu">
+                            <li><a href="pitch_notation.html">Pitch Notation</a></li>
+                            <li><a href="clef.html">Clef Notes</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="major_scale.html">Major Scales</a>
+                    </li>
+                    <li>
+                        <a href="minor_scale.html">Minor Scales</a>
+                    </li>
+                    <li>
+                        <a href="#chordSubmenu" data-toggle="collapse" aria-expanded="false">Chords: Triads</a>
+                        <ul class="collapse list-unstyled" id="chordSubmenu">
+                            <li><a href="major_triad.html">Major Triads</a></li>
+                            <li><a href="minor_triad.html">Minor Triads</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Page Content -->
+            <div id="content">
+
+                <!-- Nav Bar -->
+                <div class="navbar navbar-header">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                        <i class="glyphicon glyphicon-align-left"></i>
+                    </button>
+                </div>
+
+                <div class="container">
+                    <!-- ANIMATION LINE DRAWING SVG -->
+                    <div id="lineDrawing"> <svg viewBox="-3 -3 505 505">
+                        <g fill="none" fill-rule="evenodd" stroke="#31B495" stroke-width="4" class="lines">
+                        <path stroke="#F4D21F" d="M283.28,152.032l5.608-5.608C314.112,121.2,328,87.672,328,52c0-28.672-23.328-52-52-52s-52,23.328-52,52v121.752
+                                c-6.6,3.104-13.536,5.912-20.784,8.44C158.224,197.824,128,240.344,128,288c0,56.328,41.8,103.072,96,110.856V436
+                                c0,24.256-19.744,44-44,44s-44-19.744-44-44c0-6.616,5.384-12,12-12c6.616,0,12,5.384,12,12v12h16v-12c0-15.44-12.56-28-28-28
+                                s-28,12.56-28,28c0,33.088,26.912,60,60,60s60-26.912,60-60v-36h8c44.112,0,80-35.888,80-80s-35.888-80-80-80
+                                c-2.728,0-5.392,0.28-8,0.72v-57.08C256.504,174.888,271,164.32,283.28,152.032z M240,52c0-19.848,16.152-36,36-36
+                                c19.848,0,36,16.152,36,36c0,31.4-12.224,60.912-34.424,83.112l-5.608,5.608c-9.264,9.264-19.952,17.488-31.968,24.584V52z
+                                 M224,301.776c-4.76-2.776-8-7.88-8-13.776c0-8.048,3.08-15.32,8-20.944V301.776z M224,246.496c-14.32,8.312-24,23.784-24,41.504
+                                c0,14.872,10.232,27.288,24,30.864v63.8c-45.344-7.64-80-47.176-80-94.664c0-40.848,25.904-77.296,64.472-90.704
+                                c5.336-1.848,10.504-3.856,15.528-6.008V246.496z M240,280c4.416,0,8,3.584,8,8c0,5.896-3.24,11-8,13.776V280z M248,256
+                                c35.288,0,64,28.712,64,64c0,35.288-28.712,64-64,64h-8v-65.136c13.768-3.576,24-15.992,24-30.864c0-13.232-10.768-24-24-24
+                                v-6.864C242.576,256.464,245.224,256,248,256z" stroke-dasharray="316.85528564453125" style="stroke-dashoffset: 316.401px;"></path>
+                        <path stroke="#1AACA8" d="M32,145.472c-2.512-0.896-5.184-1.472-8-1.472c-13.232,0-24,10.768-24,24s10.768,24,24,24s24-10.768,24-24V72h48V56H32
+                                V145.472z M24,176c-4.416,0-8-3.584-8-8s3.584-8,8-8s8,3.584,8,8S28.416,176,24,176z" stroke-dasharray="150" style="stroke-dashoffset: 150px;"></path>
+                        <path stroke="#1F8C43" d="M368,104v113.472c-2.512-0.896-5.184-1.472-8-1.472c-13.232,0-24,10.768-24,24s10.768,24,24,24s24-10.768,24-24v-56h96
+                                v33.472c-2.512-0.896-5.184-1.472-8-1.472c-13.232,0-24,10.768-24,24s10.768,24,24,24s24-10.768,24-24V104H368z M360,248
+                                c-4.416,0-8-3.584-8-8s3.584-8,8-8c4.416,0,8,3.584,8,8S364.416,248,360,248z M472,248c-4.416,0-8-3.584-8-8s3.584-8,8-8
+                                c4.416,0,8,3.584,8,8S476.416,248,472,248z M480,136h-16v16h16v16h-96v-16h64v-16h-64v-16h96V136z" stroke-dasharray="441.1739501953125" style="stroke-dashoffset: 441.174px;"></path>
+                        </g></svg> 
+                    </div>
+
+                    <!-- BUTTON OPEN SIDEBAR MENU-->
+                    <div class="clicky">Start Lessons</div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- OVERLAY ON PAGE -->
+        <div class="overlay"></div>
+
+
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- jQuery Custom Scroller CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="Assets/js/anime.min.js"></script>
+        <script src="Assets/js/yarp.min.js"></script>
+
+        <script type="text/javascript">
+        $(document).ready(function(){       
+            $('.clicky').yarp({
+              colors: ['white'],
+              duration: 750
+            });
+
+        });
+
+        // Animation
+        var lineDrawing = anime({
+          targets: '#lineDrawing .lines path',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          easing: 'easeInOutSine',
+          duration: 3000,
+          delay: function(el, i) { return i * 250 },
+          direction: 'alternate',
+          loop: false
+        });
+    </script>
+    </body>
+</html>

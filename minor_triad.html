@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Music Learn</title>
+        <!-- JS Library-->
+        <script src="build/Tone.js"></script>
+        <script src="lib/scripts/jquery.min.js"></script>
+        <script src="lib/scripts/Interface.js"></script>
+        <script src="lib/scripts/Keyboard.js"></script>
+        <script src="Assets/js/main.js"></script>
+        <script src="Assets/js/vexflow.js"></script>
+
+        <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="Assets/style/pages.css">
+        <link rel="stylesheet" href="Assets/style/examples.css">
+
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script>
+        
+    </script>
+        
+    </head>
+    <body>
+        <style type="text/css">
+            img {
+                display: block;
+                margin:auto;
+                text-align: center;
+                max-width: 80%;
+            }
+
+            #Keyboard {
+                margin: 3px!important;
+            }
+        </style>
+
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div id="dismiss">
+                    <i class="glyphicon glyphicon-arrow-left"></i>
+                </div>
+
+                <div class="sidebar-header">
+                    <h3>Music Learn</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <p>Chapters</p>
+                    <li class="active">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="beats.html">Beats</a>
+                    </li>
+                    <li>
+                        <a href="#pitchSubmenu" data-toggle="collapse" aria-expanded="false">Notation</a>
+                        <ul class="collapse list-unstyled" id="pitchSubmenu">
+                            <li><a href="pitch_notation.html">Pitch Notation</a></li>
+                            <li><a href="clef.html">Clef Notes</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="major_scale.html">Major Scales</a>
+                    </li>
+                    <li>
+                        <a href="minor_scale.html">Minor Scales</a>
+                    </li>
+                    <li>
+                        <a href="#chordSubmenu" data-toggle="collapse" aria-expanded="false">Chords: Triads</a>
+                        <ul class="collapse list-unstyled" id="chordSubmenu">
+                            <li><a href="major_triad.html">Major Triads</a></li>
+                            <li><a href="minor_triad.html">Minor Triads</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Page Content Holder -->
+            <div id="content">
+
+                <nav class="navbar navbar-default" id="topbar">
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                                <i class="glyphicon glyphicon-align-left"></i>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container">
+                    <h2>Minor Triad</h2>
+                    <p>n music theory, a minor chord is a chord having a root, a minor third, and a perfect fifth. When a chord has these three notes alone, it is called a minor triad. Some minor triads with additional notes, such as the minor seventh chord, may also be called minor chords.</p><br>
+                    <p>Here is a C minor triad.</p>
+                    <img src="Assets/img/Minor_and_major_thirds.png" alt="minor_triad">
+                    <div class="instrButtons">
+                        <button class="button active" id="piano">Piano</button>
+                        <button class="button" id="amsynth">AMSynth</button>
+                        <button class="button" id="polySynth">PolySynth</button>
+                        <button class="button" id="pluck">Pluck</button>
+                    </div>
+                    <div id="Content">
+                        <div id="Keyboard"></div>
+                    </div>
+                    <div class="row">
+                        <div class="btns keys">  
+                            <div class="notes"></div><br>
+                        </div>
+                    </div>
+                    <!-- PREV NEXT ACTION BUTTONS -->
+                    <div class="action-buttons">
+                        <a href="major_triad.html"><div class="previous action-button-previous"><span class="glyphicon glyphicon-chevron-left"></span> Previous</div></a>
+                        <div class="next action-button">Next <span class="glyphicon glyphicon-chevron-right"></span></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <div class="overlay"></div>
+
+
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- jQuery Custom Scroller CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="Assets/js/minor_triad.js"></script>
+    </body>
+</html>
